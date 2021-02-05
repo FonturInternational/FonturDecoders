@@ -2,6 +2,9 @@ import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import { meteoHelix } from "./src/controllers/meteoHelix";
+import { meteoWind } from "./src/controllers/meteoWind";
+import { meteoRain } from "./src/controllers/meteoRain";
+
 import * as neroNodeDigital from "./src/controllers/neroNode.Digital";
 import * as neroNodeTemp from "./src/controllers/neroNode.Temp";
 const app = express();
@@ -27,6 +30,14 @@ app.post("/meteoHelix", (req: Request, res: Response) => {
   console.log(meteoHelix(req.body.data));
   res.sendStatus(200);
 });
+app.post("/meteoWind", (req: Request, res: Response) => {
+    console.log(meteoWind(req.body.data));
+    res.sendStatus(200);
+  });
+  app.post("/meteoRain", (req: Request, res: Response) => {
+    console.log(meteoRain(req.body.data));
+    res.sendStatus(200);
+  });
 app.listen(PORT, () => {
   console.log(
     `🚀🚀  [server]: Server is running at https://localhost:${PORT}  🚀🚀`

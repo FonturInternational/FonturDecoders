@@ -14,66 +14,44 @@ interface MeteoHelixPayload {
   time_between_rain: number;
 }
 export const type = (bits: string): number => {
-    
-    
   return parseInt(bits, 2);
 };
-export const battery = (bits: string):number => {
-    
-
-    return parseInt(bits , 2)*.05+3;
+export const battery = (bits: string): number => {
+  return parseInt(bits, 2) * 0.05 + 3;
 };
-export const temperature = (bits: string):number => {
-    
-
-    return parseInt(bits , 2)*.1+(-100);
+export const temperature = (bits: string): number => {
+  return parseInt(bits, 2) * 0.1 + -100;
 };
-export const t_min = (bits: string):number => {
-    
-
-    return parseInt(bits , 2)*.1;
+export const t_min = (bits: string): number => {
+  return parseInt(bits, 2) * 0.1;
 };
-export const t_max = (bits: string):number => {
-    
-
-    return parseInt(bits , 2)*.1;
+export const t_max = (bits: string): number => {
+  return parseInt(bits, 2) * 0.1;
 };
-export const humidity = (bits: string):number => {
-    
-
-    return parseInt(bits , 2)*.2;
+export const humidity = (bits: string): number => {
+  return parseInt(bits, 2) * 0.2;
 };
-export const pressure = (bits: string):number => {
-    
-
-    return parseInt(bits , 2)*5+50000;
+export const pressure = (bits: string): number => {
+  return parseInt(bits, 2) * 5 + 50000;
 };
-export const irradiation = (bits: string):number => {
-    
-    
-    return parseInt(bits , 2)*2;
+export const irradiation = (bits: string): number => {
+  return parseInt(bits, 2) * 2;
 };
-export const irr_max = (bits: string):number => {
-    
-
-    return parseInt(bits , 2)*2;
+export const irr_max = (bits: string): number => {
+  return parseInt(bits, 2) * 2;
 };
-export const rain = (bits: string):number => {
-    
-
-    return parseInt(bits , 2);
+export const rain = (bits: string): number => {
+  return parseInt(bits, 2);
 };
-export const time_between_rain = (bits: string):number => {
-    
-console.log(bits);
+export const time_between_rain = (bits: string): number => {
+  console.log(bits);
 
-    return parseInt(bits , 2);
+  return parseInt(bits, 2);
 };
 
-export const meteoHelix = (hex: string) :MeteoHelixPayload=> {
+export const meteoHelix = (hex: string): MeteoHelixPayload => {
   const binary: string = hex2bin(hex);
-  
-  
+
   const rawType: string = binary.substr(0, 2);
   const rawBattery: string = binary.substr(2, 5);
   const rawTemperature: string = binary.substr(7, 11);
